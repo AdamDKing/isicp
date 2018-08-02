@@ -1512,7 +1512,7 @@ C.make_editable("scheme-ex-define-smooth");
 C.add_output("scheme-ex-define-smooth");
 C.editor_of["scheme-ex-define-smooth"].setOption("onBlur", function(){
 
-  var code = "{0} \n {1} \n (feq ((smooth cos) 0) 0.99666944)".format(C.editor_of["scheme-define-feq"].getValue(), C.editor_of["scheme-ex-define-smooth"].getValue());
+  var code = "{0} \n {1} \n (or (> ((smooth cos) 0) 0.99666943) (< ((smooth cos) 0) 0.99666945))".format(C.editor_of["scheme-define-feq"].getValue(), C.editor_of["scheme-ex-define-smooth"].getValue());
 
   C.eval_scheme(code).then(function(res){
     if (res[res.length - 1] === "true\n") {
